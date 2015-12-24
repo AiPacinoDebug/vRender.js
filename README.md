@@ -28,7 +28,7 @@ hello
 <div id="view">
 	{{value(time)}}
     <br>
-    {{value(sortTime)}}
+    {{value(shortTime)}}
 </div>
 <script>
     var model={value:"2015/12/24 11:22:56"}
