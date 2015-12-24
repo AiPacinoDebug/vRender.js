@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script src="../vRender-1.0.js"></script>
+    </head>
+<body>
+  
+	<div id="view">
+		{{value(time)}}
+        <br>
+        {{value(sortTime)}}
+	</div>
+
+<script>
+
+	var model={value:"2015/12/24 11:22:56"}
+
+    $.vRender("view", model);
+
+
+</script>
+    </body>
+</html>
