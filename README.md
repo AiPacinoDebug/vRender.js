@@ -21,6 +21,24 @@
 hello
 无
 ```
+##建立虚拟view,id前边加“vDis"
+
+```code
+<div id="div1"></div>
+<div id="vDisdiv1" style="display:none">
+    {{value}}
+    <br>
+    {{made||无}}
+</div>
+<script>
+    $.vRender("div1",{value:"hello"})
+</script>
+```
+###渲染结果
+```code
+hello
+无
+```
 
 ##时间
 
