@@ -160,6 +160,25 @@ abcdeft
 A
 B
 ```
+##object数组
+
+```code
+<div id="view">
+    {{name}}
+    <br>
+<br>
+</div>
+<script>
+   var model=[{name:"小明"},{name:"小白"}];
+
+    $.vRander("view", model);
+</script>
+```
+###渲染结果
+```code
+小明
+小白
+```
 
 ##子级object数组
 
@@ -182,7 +201,6 @@ B
 ```code
 角色：小红
 朋友： 小明 小白 
-
 ```
 ##更多级别的子级object数组
 
@@ -192,28 +210,28 @@ B
     朋友：
     <ul>
         <li>
-            {{friend[list]}}
-                朋友名字： {{name[child]}}<br>
-                读书：
-                <ul>
-                    {{book[list2]}}
-                    <li>
-                        {{name[child2]}
-                    </li>
-                    {{book[end2]}}
-                    
-                </ul>
-
-        </li>
-            {{friend[end]}}
+            {{friend[list]}}<!--循环渲染 开始标记-->
+            朋友名字： {{name[child]}}<br>
+            读书：
+            <ul>
+                {{book[list2]}}
+                <li>
+                    {{name[child2]}}
+                </li>
+                {{book[end2]}}
             </ul>
-        <br>
-    </div>
+        </li>
+        {{friend[end]}}<!--循环渲染 结束标记-->
+    </ul>
+    <br>
+</div>
+
 <script>
-    var model=[{name:"小红",
-        friend:[
-            {
-                name:"小明",
+
+var model=[{name:"小红",
+    friend:[
+        {
+            name:"小明",
                 book:[
                     {name:'node.js'},
                     {name:'c#'}
@@ -228,7 +246,8 @@ B
             }
         ]
     },
-        {name:"小黑",
+        {
+            name:"小黑",
             friend:[
                 {
                     name:"黑小明",
@@ -245,10 +264,10 @@ B
                     ]
                 }
             ]
-        }];
+        }
+    ];
 
-    $.vRender("view", model);
-</script>
+	$.vRender("view", model);
 ```
 ###渲染结果
 ```code
@@ -282,6 +301,7 @@ B
 
 * 邮件(888dazhuang@163.com)
 * QQ: 360883898
+
 
 
 
