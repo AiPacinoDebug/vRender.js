@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="../vRender-1.0.min.js"></script>
+    </head>
+<body>
+  
+	<div id="view">
+        {{text.value}}
+        <br>
+        {{text.obj.p}}        
+	</div>
+
+<script>
+
+	var model={value:'hellow',text:{value:"word",obj:{p:"abcdeft"}}};
+
+	$.vRender("view", model);
+
+</script>
+    </body>
+</html>
