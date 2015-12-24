@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <script src="../vRender-1.0.min.js"></script>
+    </head>
+<body>
+
+	<div id="view">
+
+        角色：{{name}}<br>
+        朋友：
+        <ul><li>
+            {{friend[list]}}<!--循环渲染 开始标记-->
+               朋友名字： {{name[child]}}<br>
+                读书：
+                <ul>
+                    {{book[list2]}}
+                    <li>
+                        {{name[child2]}}
+                    </li>
+                    {{book[end2]}}
+
+                </ul>
+
+        </li>
+            {{friend[end]}}<!--循环渲染 结束标记-->
+            </ul>
+        <br>
+
+
+	</div>
+
+<script>
+
+	var model=[{name:"小红",
+        friend:[
+            {
+                name:"小明",
+                book:[
+                    {name:'node.js'},
+                    {name:'c#'}
+                ]
+            },
+            {
+                name:"小白",
+                book:[
+                    {name:'java'},
+                    {name:'ruby'}
+                ]
+            }
+        ]
+    },
+        {name:"小黑",
+            friend:[
+                {
+                    name:"黑小明",
+                    book:[
+                        {name:'黑node.js'},
+                        {name:'黑c#'}
+                    ]
+                },
+                {
+                    name:"黑小白",
+                    book:[
+                        {name:'黑java'},
+                        {name:'黑ruby'}
+                    ]
+                }
+            ]
+        }];
+
+	$.vRender("view", model);
+
+
+</script>
+    </body>
+</html>
