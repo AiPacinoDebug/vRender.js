@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script src="../vRender-1.0.js"></script>
+    </head>
+<body>
+
+    <div id="view">
+        {{value{0:未支付,1:已支付,2:已退款,:暂无内容}}}<br>
+    </div>
+
+<script>
+
+    var model=[{value:0},{value:1},{value:2}];
+
+    $.vRender("view", model);
+
+
+</script>
+    </body>
+</html>
