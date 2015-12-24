@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script src="../vRender-1.0.js"></script>
+    </head>
+<body>
+  
+<div id="view">
+	{{value(func1)}}
+    <br>
+    {{text.value(func2)}}
+    <br>
+    {{text.obj.p(obj_func3)}}
+</div>
+
+<script>
+function func1(e){
+    return e+":func1";
+}
+function func2(e){
+    return e+":func2";
+}
+function func3(e){
+    return e.value+":func3";
+}
+
+var model={value:'hellow',text:{value:"word",obj:{p:"abcdeft"}}};
+
+$.vRender("view", model);
+
+</script>
+    </body>
+</html>
