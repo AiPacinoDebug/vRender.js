@@ -122,7 +122,7 @@ hellow:func3
     {{value(-5)}}
 </div>
 <script>
-    $.vRender("div1",{value:"hello"})
+    $.vRender("view",{value:"1234567890"})
 </script>
 ```
 ###渲染结果
