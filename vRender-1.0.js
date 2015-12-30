@@ -124,7 +124,12 @@
                         var text = pstr[0].replace(_reText, "");//获取去{{text[](){}}}中的text
                         var pType = pstr[0].match(_getTypeV);//获取去{{text[](){}}}中的()
                         var status = pstr[0].match(_getStatusV);//获取去{{text[](){}}}中的{}
-                        tmp = tmp.replace(pstr[0], _createpType(_createValue(text, msg[i], status), pType, msg[i]))
+                        if (msg[i].constructor != Array){
+                           tmp = tmp.replace(pstr[0],msg[i], pType, msg[i])
+                        }
+                        else{
+                           tmp = tmp.replace(pstr[0], _createpType(_createValue(text, msg[i], status), pType, msg[i]))
+                        }
                     }
                     tmp=createByLevel(msg[i],tmp,level?level*1+1:level+2);
                     restultStr += tmp;
