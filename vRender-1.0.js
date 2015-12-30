@@ -4,11 +4,17 @@
         function _createpType(value, dataType, msg) {
             dataType && (dataType = dataType[0])
             if (dataType == "(time)") {
+            	if(_num.test(value)){
+                    value=value*1;
+                }
                 var _tm = new Date(value);
                 if (_tm != "Invalid Date") {
                     value = _tm.getFullYear() + "/" + (_tm.getMonth() + 1) + "/" + _tm.getDate() + " " + _tm.getHours() + ":" + _tm.getMinutes() + ":" + _tm.getSeconds()
                 }
             } else if (dataType == "(shortTime)") {
+            	if(_num.test(value)){
+                    value=value*1;
+                }
                 var _tm2 = new Date(value);
                 if (_tm2 != "Invalid Date") {
                     value = _tm2.getFullYear() + "/" + (_tm2.getMonth() + 1) + "/" + _tm2.getDate();
