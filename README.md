@@ -46,10 +46,10 @@ hello
 <div id="view">
 	{{value(time)}}
     <br>
-    {{value(shortTime)}}
+    {{num(shortTime)}}
 </div>
 <script>
-    var model={value:"2015/12/24 11:22:56"}
+    var model={value:"2015/12/24 11:22:56",num:1451360409000}
 
     $.vRender("view", model);
 </script>
@@ -57,7 +57,7 @@ hello
 ###渲染结果
 ```code
 2015/12/24 11:22:56 
-2015/12/24
+2015/12/29
 ```
 
 ##状态
