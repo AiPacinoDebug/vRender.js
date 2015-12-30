@@ -163,8 +163,15 @@ abcdeft
 
 ```code
 <div id="view">
-	{{value.0}}
-   <br>
+全部：{{value}}     <br>
+循环：
+	{{value[list]}}
+		{{value[child]}}
+	{{value[end]}}
+<br>
+读取第一个：
+	{{value.0}}     <br>
+读取第二个：	
     {{value.1}}
 </div>
 <script>
@@ -175,8 +182,10 @@ abcdeft
 ```
 ###渲染结果
 ```code
-A
-B
+全部：A,B
+循环：AB
+读取第一个：A
+读取第二个：B
 ```
 ##object数组
 
