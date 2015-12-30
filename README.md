@@ -44,9 +44,11 @@ hello
 
 ```code
 <div id="view">
-	{{value(time)}}
+    {{value(time)}}
     <br>
     {{num(shortTime)}}
+    <br>
+    {{value(yyyy-mm-dd)}}
 </div>
 <script>
     var model={value:"2015/12/24 11:22:56",num:1451360409000}
@@ -58,6 +60,7 @@ hello
 ```code
 2015/12/24 11:22:56 
 2015/12/29
+2015-12-24
 ```
 
 ##状态
