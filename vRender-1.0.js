@@ -46,6 +46,9 @@
                         	//msg是value的父级
                             return window[dataType.replace("obj_", "")](msg);
                         }
+                        if (/(y+)/.test(dataType)){
+                            value = format(dataType, value);
+                        }
                         else {
                             return window[dataType];
                         }
@@ -55,6 +58,31 @@
             return value;
         }
         var _rdkh = new RegExp("^[{(]|[)}]$", "g");
+        function format(fmt,value){
+            if(_num.test(value)){
+                value=value*1;
+            }
+            var time = new Date(value);
+            if (time != "Invalid Date") {
+            var o = {
+                "M+": time.getMonth() + 1,                 //月份
+                "d+": time.getDate(),                    //日
+                "h+": time.getHours(),                   //小时
+                "m+": time.getMinutes(),                 //分
+                "s+": time.getSeconds(),                 //秒
+                "q+": Math.floor((time.getMonth() + 3) / 3), //季度
+                "S": time.getMilliseconds()             //毫秒
+            };
+
+                fmt = fmt.replace(RegExp.$1, (time.getFullYear() + "").substr(4 - RegExp.$1.length));
+                for (var k in o)
+                    if (new RegExp("(" + k + ")").test(fmt))
+                        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                return fmt;
+            }else{
+                return time+"";
+            }
+        }
         function _createValue(columnValue, data, status) {
             var nodata = "";
             var value = data[columnValue]|| (typeof(data[columnValue])=="number"?data[columnValue]:"");
