@@ -158,7 +158,7 @@
                         var text = pstr[0].replace(_reText, "");//获取去{{text[](){}}}中的text
                         var pType = pstr[0].match(_getTypeV);//获取去{{text[](){}}}中的()
                         var status = pstr[0].match(_getStatusV);//获取去{{text[](){}}}中的{}
-                        if (msg[i].constructor != Array){
+                        if (msg[i].constructor ==String){
                            tmp = tmp.replace(pstr[0],msg[i], pType, msg[i])
                         }
                         else{
